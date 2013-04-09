@@ -12,7 +12,7 @@ public class TestaConexao {
 		c.setNome("Anderson Dadario ");
 		c.setTel("1234-5678");
 		c.setEmail("a@a.com");
-		c.setData(Calendar.getInstance());
+		c.setData(Calendar.getInstance()); 
 		
 		ContatoDAO contatoDAO = new ContatoDAO();
 		contatoDAO.maroto(c);
