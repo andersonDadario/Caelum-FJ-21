@@ -2,6 +2,7 @@ package br.com.caelum.jdbc.teste;
 
 import java.sql.SQLException;
 import java.util.Calendar;
+import java.util.List;
 
 import br.com.caelum.jdbc.dao.ContatoDAO;
 import br.com.caelum.jdbc.javabean.Contato;
@@ -16,5 +17,10 @@ public class TestaConexao {
 		
 		ContatoDAO contatoDAO = new ContatoDAO();
 		contatoDAO.maroto(c);
+		
+		List<Contato> lista = contatoDAO.getLista();
+		for(Contato cc : lista){
+			System.out.println(cc.getNome() + "\n");
+		}
 	}
 }
