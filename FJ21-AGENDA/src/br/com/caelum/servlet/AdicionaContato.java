@@ -14,9 +14,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import br.com.caelum.agenda.dao.ContatoDao;
 import br.com.caelum.agenda.modelo.Contato;
+import br.com.caelum.interfaces.Logica;
 
-public class AdicionaContato extends HttpServlet {
-	public void service (HttpServletRequest request
+public class AdicionaContato extends HttpServlet implements Logica {
+	public String execute (HttpServletRequest request
 			, HttpServletResponse response)
 					throws ServerException, IOException {
 		
@@ -64,5 +65,15 @@ public class AdicionaContato extends HttpServlet {
 		 * Calendar cal = Calendar.getInstance();
 		 * cal.setTime(data)
 		 */
+		return "jstl.jsp";
+		
+		/* Request Dispatcher 
+		RequestDispatcher rd = request.getRequestDispatcher("jstl.jsp");
+		try {
+			rd.forward(request, response);
+		} catch (ServletException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}*/
 	}
 }
