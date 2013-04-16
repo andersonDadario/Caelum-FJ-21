@@ -57,7 +57,7 @@ public class AdicionaContato extends HttpServlet implements Logica {
 		c.setEmail(email);
 		c.setDataNascimento(cal);
 		
-		new ContatoDao().adiciona(c);
+		new ContatoDao(request, response).adiciona(c);
 		
 		/* Manipulando Datas
 		 * 

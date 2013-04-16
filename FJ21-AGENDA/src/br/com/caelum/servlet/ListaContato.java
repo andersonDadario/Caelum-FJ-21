@@ -17,7 +17,7 @@ public class ListaContato implements Logica {
 	public String execute(HttpServletRequest request
 			, HttpServletResponse response) throws ServerException, IOException, ServletException {
 		
-		List<Contato> lista = new ContatoDao().getLista();
+		List<Contato> lista = new ContatoDao(request, response).getLista();
 		request.setAttribute("lista", lista);
 		
 		return "jstl.jsp";

@@ -9,24 +9,19 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import br.com.caelum.agenda.ConnectionFactory;
 import br.com.caelum.agenda.modelo.Contato;
 
 public class ContatoDao {
 	private Connection connection;
 
-	public ContatoDao() {
-		try {
-			this.connection = new ConnectionFactory().getConnection();
-		} catch (SQLException e) {
-			throw new RuntimeException(e);
-		}
+	public ContatoDao(HttpServletRequest request, HttpServletResponse response) {
+		this.connection = (Connection) request.getAttribute("conexao");
 	}
-
-	public ContatoDao(Connection connection) {
-		this.connection = connection;
-	}
-
+	
 	public void adiciona(Contato contato) {
 		try {
 			String sql = "insert into contatos (nome, email, endereco, dataNascimento) values (?,?,?,?)";
