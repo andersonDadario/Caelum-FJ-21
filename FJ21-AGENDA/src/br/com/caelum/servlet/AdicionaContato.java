@@ -8,6 +8,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -19,7 +20,7 @@ import br.com.caelum.interfaces.Logica;
 public class AdicionaContato extends HttpServlet implements Logica {
 	public String execute (HttpServletRequest request
 			, HttpServletResponse response)
-					throws ServerException, IOException {
+					throws ServerException, IOException, ServletException {
 		
 		PrintWriter out = response.getWriter();
 		out.println("Seu nome é " + request.getParameter("nome"));

@@ -25,8 +25,9 @@
 		</c:if>
 		<br/>/* JSTL */<br/>
 		<table>
-			<jsp:useBean class="br.com.caelum.agenda.dao.ContatoDao" id="dao" />
-			<c:forEach items="${dao.lista}" var="contato" varStatus="i">
+			<!-- jsp:useBean class="br.com.caelum.agenda.dao.ContatoDao" id="dao" / -->
+			<!-- c:forEach items="${dao.lista}" var="contato" varStatus="i" -->
+			<c:forEach items="${lista}" var="contato" varStatus="i">
 				<tr bgcolor="${i.count%2==0?'#CDCDCD':'#F1F1F1'}">
 					<td>
 						<c:if test="${empty contato.email}">
@@ -45,7 +46,7 @@
 		<form action="oimundo" method="post">
 			Nome <input type="text" name="nome" /><br/>
 			Email <input type="text" name="email" /><br/>
-			Data <caelum:campoData id="data_nascimento" /><br/>
+			Data <caelum:campoData id="data_nascimento"  /><br/>
 			<input type="hidden" name="opcode" value="AdicionaContato" />
 			<input type="submit" value="Enviar" />
 		</form>

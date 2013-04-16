@@ -46,4 +46,14 @@
   	<servlet-name>Adiciona Contato</servlet-name>
   	<url-pattern>/adicionaContato</url-pattern>
   </servlet-mapping>
+  
+	<filter>
+		<filter-name>FiltroTempo</filter-name>
+		<filter-class>br.com.caelum.filtro.FiltroTempo</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>FiltroTempo</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
 </web-app>
