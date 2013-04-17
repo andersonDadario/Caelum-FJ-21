@@ -10,3 +10,7 @@ Convenções MVC
 - pacote só para lógicas
 - interface Logica
 
+Recursos Spring
+- Receber Objeto (Tarefa) da Request
+- Validacao via @Annotations nos Models
+- Bind no erro de Validacao, exibido na View
