@@ -1,0 +1,12 @@
+FJ-21
+
+Java Bean
+- Variáveis privadas
+- Getters e Setters
+- Constructor s/ argumentos
+
+Convenções MVC
+- parâmetro lógica
+- pacote só para lógicas
+- interface Logica
+
