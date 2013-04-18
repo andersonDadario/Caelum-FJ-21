@@ -5,10 +5,13 @@ import java.util.Calendar;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 public class Tarefa {
 	private Long id;
 	
-	@NotNull @Size(min=5)
+	@Size(min=5, max=20, message="{tarefa.descricao.tamanho}")
+	@NotEmpty(message="{tarefa.descricao.vazio}")
 	private String descricao;
 	
 	private boolean finalizado;

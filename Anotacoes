@@ -14,3 +14,7 @@ Recursos Spring
 - Receber Objeto (Tarefa) da Request
 - Validacao via @Annotations nos Models
 - Bind no erro de Validacao, exibido na View
+
+Properties
+- Fica no "src"
+- ValidationMessages.properties

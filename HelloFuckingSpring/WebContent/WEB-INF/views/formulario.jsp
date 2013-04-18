@@ -7,6 +7,7 @@
             <br/>
     <textarea rows="5" cols="100" name="descricao"></textarea> 
             <br/>     
+    <form:errors path="*" cssStyle="color:red"/>
     <form:errors path="tarefa.descricao" cssStyle="color:red"/>
             <br/>
     <input type="submit" value="Adicionar"/>
@@ -17,5 +18,7 @@
 
 Tarefa t = new Tarefa();
 t.setDescricao("Estudar Java");
+
+:: Stella (brasileiro)
 
  -->
