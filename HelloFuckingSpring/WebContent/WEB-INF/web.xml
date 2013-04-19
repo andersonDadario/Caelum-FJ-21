@@ -30,4 +30,9 @@
       <servlet-name>Spring MVC Dispatcher Servlet</servlet-name>
       <url-pattern>/</url-pattern>
 	</servlet-mapping>
+	
+	
+	<session-config>
+ 		<session-timeout>3</session-timeout>
+	</session-config>
 </web-app>

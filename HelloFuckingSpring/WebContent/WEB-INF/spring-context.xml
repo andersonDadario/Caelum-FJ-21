@@ -13,6 +13,10 @@
   <context:component-scan base-package="br.com.caelum.tarefas" />
   <mvc:annotation-driven />
   <mvc:default-servlet-handler />
+  <mvc:interceptors>
+  <bean class=
+    "br.com.caelum.tarefas.LoginInterceptor" />
+</mvc:interceptors>
 
   <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
     <property name="prefix" value="/WEB-INF/views/"/>

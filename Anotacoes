@@ -18,3 +18,7 @@ Recursos Spring
 Properties
 - Fica no "src"
 - ValidationMessages.properties
+
+Autenticacao e Autorizacao
+- Session na request
+- Filtro p/ Sessao
