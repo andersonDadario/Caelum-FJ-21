@@ -22,3 +22,35 @@ Properties
 Autenticacao e Autorizacao
 - Session na request
 - Filtro p/ Sessao
+
+CDI - Injecao de Dependecias
+- Objetivo: remover responsabilidades dos componentes, resultando em remoção de acoplamento
+- Diversos métodos
+- Ex: DataSource (pool de conexoes)
+
+Deploy
+- Copiar .war para apache-tomcat/webapps
+- Apenas conteudo do Web-Content vai p/ WAR
+
+JPA
+- src/META-INF/persistence.xml
+(ATENCAO: cuidado para nao criar no WebContent)
+	/* Inserir Tarefa */
+	EntityManagerFactory f = new EMF();
+	EntityManager m = f.createEntityManager();
+	tarefa t = new Tarefa();
+	m.getTransaction().begin();
+	m.persist(t);
+	m.getTransaction().commit();
+	m.close();
+
+	/* Buscar Tarefa */
+	m.getTransaction().begin();
+	Tarefa t2 = m.find(Tarefa.class,1L);
+
+Descobrir classe
+- Class: forName("nome")
+- new Tarefa().getClass();
+- Tarefa.class
+
+(( RATIONAL ROSE (IBM) -- Gera Classes/Tabelas ))

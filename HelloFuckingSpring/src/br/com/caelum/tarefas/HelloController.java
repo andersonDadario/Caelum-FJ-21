@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -14,6 +15,13 @@ import br.com.caelum.tarefas.modelo.Tarefa;
 
 @Controller
 public class HelloController {
+	private final JdbcTarefaDao dao;
+	
+	@Autowired
+	public HelloController(JdbcTarefaDao dao){
+		this.dao = dao;
+	}
+	
 	@RequestMapping("adicionaTarefa")
 	public String adiciona(@Valid Tarefa tarefa, BindingResult result){
 		//if(result.hasFieldErrors("descricao")){
@@ -21,13 +29,13 @@ public class HelloController {
 			return "formulario";
 		}
 		
-		new JdbcTarefaDao().adiciona(tarefa);
+		dao.adiciona(tarefa);
 		return "adicionado";
 	}
 	
 	@RequestMapping("alteraTarefa")
 	public String altera(Tarefa tarefa, Model model){
-		tarefa = new JdbcTarefaDao().buscaPorId(tarefa.getId());
+		tarefa = dao.buscaPorId(tarefa.getId());
 		model.addAttribute("tarefa",tarefa);
 		//return "forward:listaTarefas";
 		return "redirect:listaTarefas";
@@ -40,7 +48,7 @@ public class HelloController {
 	
 	@RequestMapping("listaTarefas")
 	public String lista(Model model){
-		List<Tarefa> lista = new JdbcTarefaDao().lista();
+		List<Tarefa> lista = dao.lista();
 		model.addAttribute("lista", lista);
 		
 		return "listaTarefas";

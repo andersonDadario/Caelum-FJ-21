@@ -2,20 +2,30 @@ package br.com.caelum.tarefas.modelo;
 
 import java.util.Calendar;
 
-import javax.validation.constraints.NotNull;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
+
+
+@Entity
 public class Tarefa {
+	@GeneratedValue
+	@Id
 	private Long id;
 	
-	@Size(min=5, max=20, message="{tarefa.descricao.tamanho}")
+	@Size(min=5, max=50, message="{tarefa.descricao.tamanho}")
 	@NotEmpty(message="{tarefa.descricao.vazio}")
 	private String descricao;
 	
 	private boolean finalizado;
 	
+	@Temporal(TemporalType.DATE)
 	private Calendar dataFinalizacao;
 
 	public Long getId() {
